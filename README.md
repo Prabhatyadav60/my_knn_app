@@ -2,6 +2,10 @@
 
 This project implements a K-Nearest Neighbors (KNN) model to predict whether a customer is likely to make a purchase based on their age and salary. The model is trained using a dataset and can be easily deployed using Flask for web interface interactions.
 
+PREVIEW -->
+![{A3886BA7-F816-4DAB-88D0-7C01FC70AEDE}](https://github.com/user-attachments/assets/703d25b9-e796-43e3-b51d-7d61f4967973)
+
+
 ## 📚 Table of Contents
 - [✨ Features](#features)
 - [🔧 Requirements](#requirements)
