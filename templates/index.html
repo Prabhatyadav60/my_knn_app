@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Prediction</title>
+
+    <!-- Google Fonts for custom fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Link to animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!-- Custom CSS Styling -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: bounceInDown 1s; /* Adding bounce animation on load */
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            animation: fadeIn 2s;
+        }
+        label {
+            font-size: 16px;
+            color: #666;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        input[type="number"]:focus {
+            border-color: #74ebd5;
+        }
+        input[type="submit"] {
+            background-color: #74ebd5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #acb6e5;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.5s;
+        }
+
+        @keyframes bounceInDown {
+            0%, 60%, 75%, 90%, 100% {
+                transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            }
+            0% {
+                opacity: 0;
+                transform: translateY(-2000px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(30px);
+            }
+            75% {
+                transform: translateY(-10px);
+            }
+            90% {
+                transform: translateY(5px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container animate__animated animate__bounceInDown">
+        <h1 class="animate__animated animate__fadeIn">Purchase Prediction App</h1>
+        <form action="/predict" method="post">
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" required><br>
+
+            <label for="salary">Estimated Salary:</label><br>
+            <input type="number" id="salary" name="salary" required><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+        <div class="result animate__animated animate__fadeInUp">
+            <h2>{{ prediction_text }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
