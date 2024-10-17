@@ -1,5 +1,21 @@
-Flask==2.0.2
-scikit-learn==0.24.2
-pandas==1.3.3
-numpy==1.21.2
-gunicorn==20.1.0
+# Essential for your KNN model
+scikit-learn==1.0.2  # Pin a stable version to avoid compilation issues
+
+# Specify a compatible version of Cython to avoid compilation errors
+Cython==0.29.24
+
+# Flask is commonly used for web interfaces
+Flask==2.1.3  # Pin a specific stable version of Flask
+
+# Gunicorn is a WSGI HTTP server for deploying Python apps (optional)
+gunicorn==20.1.0  # Recommended for production deployment
+
+# Any other essential libraries you are using for your project should be listed here
+# Example for NumPy, which is often used alongside scikit-learn
+numpy==1.21.6
+
+# If you use pandas or any other libraries, specify their versions
+pandas==1.3.5
+
+# Uncomment the next line if you actually need Pygame for any reason. If not, remove it.
+# pygame==2.1.2
